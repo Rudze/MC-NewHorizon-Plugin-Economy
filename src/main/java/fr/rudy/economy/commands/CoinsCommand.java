@@ -20,55 +20,55 @@ public class CoinsCommand implements CommandExecutor {
         if (args.length == 0 && sender instanceof Player player) {
             double balance = economyManager.getMoney(player.getUniqueId());
             String formatted = String.format("%.2f", balance);
-            player.sendMessage("§eVous avez §6" + formatted + " pièces§e.");
+            player.sendMessage("<glyph:info> §bVous avez " + formatted + " <glyph:money_icon>");
             return true;
 
         } else if (args.length == 3 && args[0].equalsIgnoreCase("set")) {
             if (!sender.hasPermission("economy.set")) {
-                sender.sendMessage("§cVous n'avez pas la permission.");
+                //sender.sendMessage("<glyph:error> §cVous n'avez pas la permission.");
                 return true;
             }
 
             Player target = Bukkit.getPlayer(args[1]);
             if (target == null) {
-                sender.sendMessage("§cJoueur introuvable.");
+                sender.sendMessage("<glyph:error> §cJoueur introuvable.");
                 return true;
             }
 
             try {
                 int amount = Integer.parseInt(args[2]);
                 economyManager.setMoney(target.getUniqueId(), amount);
-                sender.sendMessage("§aArgent mis à jour pour " + target.getName() + " : " + amount + " pièces.");
-                target.sendMessage("§aVotre solde a été mis à jour : " + amount + " pièces.");
+                sender.sendMessage("<glyph:info> §bArgent mis à jour pour " + target.getName() + " : " + amount + " <glyph:money_icon>");
+                target.sendMessage("<glyph:info> §bVotre solde a été mis à jour : " + amount + " <glyph:money_icon>");
             } catch (NumberFormatException e) {
-                sender.sendMessage("§cMontant invalide.");
+                sender.sendMessage("<glyph:error> §cMontant invalide.");
             }
             return true;
 
         } else if (args.length == 3 && args[0].equalsIgnoreCase("give")) {
             if (!sender.hasPermission("economy.give")) {
-                sender.sendMessage("§cVous n'avez pas la permission.");
+                //sender.sendMessage("§cVous n'avez pas la permission.");
                 return true;
             }
 
             Player target = Bukkit.getPlayer(args[1]);
             if (target == null) {
-                sender.sendMessage("§cJoueur introuvable.");
+                sender.sendMessage("<glyph:error> §cJoueur introuvable.");
                 return true;
             }
 
             try {
                 int amount = Integer.parseInt(args[2]);
                 economyManager.addMoney(target.getUniqueId(), amount);
-                sender.sendMessage("§aVous avez donné " + amount + " pièces à " + target.getName() + ".");
-                target.sendMessage("§aVous avez reçu " + amount + " pièces !");
+                sender.sendMessage("<glyph:info> Vous avez donné " + amount + " <glyph:money_icon> §bà " + target.getName() + ".");
+                target.sendMessage("<glyph:info> Vous avez reçu " + amount + " <glyph:money_icon> §b!");
             } catch (NumberFormatException e) {
-                sender.sendMessage("§cMontant invalide.");
+                sender.sendMessage("<glyph:error> Montant invalide.");
             }
             return true;
         }
 
-        sender.sendMessage("§cUtilisation : /coins [give|set] <joueur> <montant>");
+        //sender.sendMessage("§cUtilisation : /coins [give|set] <joueur> <montant>");
         return false;
     }
 }

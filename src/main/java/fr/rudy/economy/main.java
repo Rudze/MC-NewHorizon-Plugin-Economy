@@ -68,5 +68,3 @@ public class main extends JavaPlugin implements Listener {
         }
     }
 }
-
-// EconomyManager et CoinsCommand restent les mêmes que ceux que tu as fournis, à condition qu'ils utilisent bien la table "economy" et non "newhorizon_player_data".
