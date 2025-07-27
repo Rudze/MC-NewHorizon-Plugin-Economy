@@ -1,0 +1,4 @@
+fr\rudy\economy\commands\CoinsCommand.class
+fr\rudy\economy\vault\VaultEconomy.class
+fr\rudy\economy\main.class
+fr\rudy\economy\manager\EconomyManager.class
