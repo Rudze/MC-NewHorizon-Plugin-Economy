@@ -55,7 +55,6 @@ public class VaultEconomy implements Economy {
         return new EconomyResponse(amount, current + amount, EconomyResponse.ResponseType.SUCCESS, null);
     }
 
-    /* Les méthodes non-implémentées avec debug minimal */
     @Override public boolean hasAccount(String s) { return false; }
     @Override public boolean hasAccount(String s, String s1) { return false; }
     @Override public boolean hasAccount(OfflinePlayer player, String world) { return true; }

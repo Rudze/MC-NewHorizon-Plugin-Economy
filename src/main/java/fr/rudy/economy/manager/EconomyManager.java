@@ -16,9 +16,7 @@ public class EconomyManager {
                 "INSERT OR IGNORE INTO economy (uuid, money) VALUES (?, 0.0);")) {
             ps.setString(1, player.toString());
             ps.executeUpdate();
-            Bukkit.getLogger().info("DEBUG EconomyManager: ensurePlayerExists exécuté pour " + player);
         } catch (SQLException e) {
-            Bukkit.getLogger().severe("❌ ensurePlayerExists: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -31,7 +29,6 @@ public class EconomyManager {
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 double balance = rs.getDouble("money");
-                Bukkit.getLogger().info("DEBUG EconomyManager: getMoney pour " + player + " = " + balance);
                 return balance;
             }
         } catch (SQLException e) {
@@ -48,9 +45,7 @@ public class EconomyManager {
             statement.setDouble(1, amount);
             statement.setString(2, player.toString());
             statement.executeUpdate();
-            Bukkit.getLogger().info("DEBUG EconomyManager: setMoney " + player + " -> " + amount);
         } catch (SQLException e) {
-            Bukkit.getLogger().severe("❌ setMoney: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -58,6 +53,5 @@ public class EconomyManager {
     public void addMoney(UUID player, double amount) {
         double newAmount = getMoney(player) + amount;
         setMoney(player, newAmount);
-        Bukkit.getLogger().info("DEBUG EconomyManager: addMoney " + player + " + " + amount + " = " + newAmount);
     }
 }
