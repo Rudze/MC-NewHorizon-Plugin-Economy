@@ -1,5 +1,5 @@
 name: Economy
-version: 1.3
+version: 1.4
 main: fr.rudy.economy.Main
 api-version: 1.21
 depend: [DataBaseAPI, Vault]
@@ -11,3 +11,8 @@ commands:
   coins:
     description: Gérer l'argent des joueurs.
     usage: /<command> [give|set] <joueur> <montant>
+
+  pay:
+    description: Envoyer de l'argent à un autre joueur
+    usage: /<command> <joueur> <montant>
+    aliases: [payer]

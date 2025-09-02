@@ -61,12 +61,14 @@ public class CoinsCommand implements CommandExecutor {
                 int amount = Integer.parseInt(args[2]);
                 economyManager.addMoney(target.getUniqueId(), amount);
                 sender.sendMessage("<glyph:info> Vous avez donné " + amount + " <glyph:money_icon> §bà " + target.getName() + ".");
-                target.sendMessage("<glyph:info> Vous avez reçu " + amount + " <glyph:money_icon> §b!");
+                target.sendMessage("<glyph:info> §bVous avez reçu " + amount + " <glyph:money_icon> §b!");
             } catch (NumberFormatException e) {
                 sender.sendMessage("<glyph:error> Montant invalide.");
             }
             return true;
+
         }
+
 
         //sender.sendMessage("§cUtilisation : /coins [give|set] <joueur> <montant>");
         return false;

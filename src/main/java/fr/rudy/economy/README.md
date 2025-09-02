@@ -37,6 +37,14 @@ Commande `/coins` :
 - Vérifie les permissions (`economy.give` et `economy.set`).
 - Interagit avec `EconomyManager`.
 
+#### 🔹 `PayCommand.java`
+Commande `/pay` :
+- Permet aux joueurs d’envoyer de l’argent à d’autres joueurs.
+- Vérifie que le montant est valide et que le joueur a assez de fonds.
+- Empêche l’auto-paiement.
+- Vérifie que le joueur cible est en ligne.
+- Utilise `EconomyManager` pour transférer l'argent.
+
 ---
 
 ### 📂 `manager`
@@ -61,7 +69,7 @@ Adaptateur Vault :
 
 ## ✅ Prérequis
 
-- Minecraft **Spigot/Paper 1.19+**
+- Minecraft **Paper 1.21.4**
 - Plugin **DatabaseAPI** installé
 - Plugin **Vault** recommandé
 

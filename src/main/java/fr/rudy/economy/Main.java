@@ -2,6 +2,7 @@ package fr.rudy.economy;
 
 import fr.rudy.databaseapi.DatabaseAPI;
 import fr.rudy.economy.commands.CoinsCommand;
+import fr.rudy.economy.commands.PayCommand;
 import fr.rudy.economy.manager.EconomyManager;
 import fr.rudy.economy.vault.VaultEconomy;
 import net.milkbowl.vault.economy.Economy;
@@ -60,6 +61,8 @@ public class Main extends JavaPlugin implements Listener {
         }
 
         getCommand("coins").setExecutor(new CoinsCommand(economyManager));
+        getCommand("pay").setExecutor(new PayCommand(economyManager));
+
         Bukkit.getPluginManager().registerEvents(this, this);
         getLogger().info("✅ Plugin Economy activé !");
     }
